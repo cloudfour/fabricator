@@ -14,6 +14,7 @@ var postcss = require('gulp-postcss');
 var prefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var reload = browserSync.reload;
+var requireDir = require('require-dir');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var webpack = require('webpack');
@@ -109,9 +110,7 @@ gulp.task('favicon', function () {
 gulp.task('assemble', function (done) {
 	assemble({
 		// apply additional helpers
-		helpers: {
-			ifEqual: require('./build/helpers/ifEqual')
-		}
+		helpers: requireDir('./build/helpers')
 	});
 	done();
 });
