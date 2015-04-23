@@ -1,0 +1,17 @@
+.u-flexRows {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+.u-flexCols {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.u-flexWrap {
+  flex-wrap: wrap !important;
+}
+
+.u-flexGrow {
+  flex: 1 0 auto !important;
+}

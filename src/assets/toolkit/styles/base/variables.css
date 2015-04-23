@@ -1,0 +1,21 @@
+:root {
+  --ratio: 1.618;
+  --line-height: 1.5;
+  --margin-height: 1rem;
+  --gutter-width: 1rem;
+  --heading-weight: 700;
+  --heading-line-height: 1.25;
+  --font-family-sans: sans-serif;
+  --font-family-serif: serif;
+  --font-family: var(--font-family-sans);
+}
+
+/* http://dev.w3.org/csswg/mediaqueries-4/#mq-range-context */
+
+@custom-media --sm-viewport (width >= 20em) and (width <= 40em);
+@custom-media --md-viewport (width >= 40em) and (width <= 60em);
+@custom-media --lg-viewport (width <= 60em);
+
+/* http://dev.w3.org/csswg/css-extensions/#custom-selectors */
+
+@custom-selector --heading h1, h2, h3, h4, h5, h6;

@@ -1,0 +1,7 @@
+:root {
+  --Container-width: 80em;
+}
+
+.Container {
+  max-width: var(--Container-width);
+}
