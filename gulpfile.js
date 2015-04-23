@@ -107,7 +107,12 @@ gulp.task('favicon', function () {
 
 // assemble
 gulp.task('assemble', function (done) {
-	assemble();
+	assemble({
+		// apply additional helpers
+		helpers: {
+			ifEqual: require('./build/helpers/ifEqual')
+		}
+	});
 	done();
 });
 
