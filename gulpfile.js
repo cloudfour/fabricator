@@ -3,12 +3,14 @@
 // modules
 var assemble = require('fabricator-assemble');
 var browserSync = require('browser-sync');
+var cssnext = require('cssnext');
 var csso = require('gulp-csso');
 var del = require('del');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var imagemin = require('gulp-imagemin');
+var postcss = require('gulp-postcss');
 var prefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var reload = browserSync.reload;
@@ -27,7 +29,7 @@ var config = {
 		},
 		styles: {
 			fabricator: 'src/assets/fabricator/styles/fabricator.scss',
-			toolkit: 'src/assets/toolkit/styles/toolkit.scss'
+			toolkit: 'src/assets/toolkit/styles/toolkit.css'
 		},
 		images: 'src/assets/toolkit/images/**/*',
 		views: 'src/toolkit/views/*.html'
@@ -62,10 +64,9 @@ gulp.task('styles:fabricator', function () {
 
 gulp.task('styles:toolkit', function () {
 	return gulp.src(config.src.styles.toolkit)
-		.pipe(sass({
-			errLogToConsole: true
-		}))
-		.pipe(prefix('last 1 version'))
+		.pipe(postcss([
+			cssnext()
+		]))
 		.pipe(gulpif(!config.dev, csso()))
 		.pipe(gulp.dest(config.dest + '/assets/toolkit/styles'))
 		.pipe(gulpif(config.dev, reload({stream:true})));
@@ -106,7 +107,12 @@ gulp.task('favicon', function () {
 
 // assemble
 gulp.task('assemble', function (done) {
-	assemble();
+	assemble({
+		// apply additional helpers
+		helpers: {
+			ifEqual: require('./build/helpers/ifEqual')
+		}
+	});
 	done();
 });
 
@@ -116,9 +122,14 @@ gulp.task('serve', function () {
 
 	browserSync({
 		server: {
-			baseDir: config.dest
+			baseDir: config.dest,
 		},
 		notify: false,
+		ghostMode: false,
+		minify: false,
+		online: false,
+		open: false,
+		port: 3000,
 		logPrefix: 'FABRICATOR'
 	});
 

@@ -1,0 +1,6 @@
+@import "suitcss-components-grid";
+
+:root {
+  --Grid-font-size: 1rem;
+  --Grid-gutter-size: 1rem;
+}

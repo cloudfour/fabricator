@@ -1,0 +1,37 @@
+.u-margin-0 {
+  margin: 0 !important;
+}
+
+@media (--sm-viewport) {
+  .u-sm-margin-0 {
+    margin: 0 !important;
+  }
+}
+
+@media (--md-viewport) {
+  .u-md-margin-0 {
+    margin: 0 !important;
+  }
+}
+
+@media (--lg-viewport) {
+  .u-lg-margin-0 {
+    margin: 0 !important;
+  }
+}
+
+.u-marginTop-0 {
+  margin-top: 0 !important;
+}
+
+.u-marginTop-1 {
+  margin-top: var(--margin-height) !important;
+}
+
+.u-marginBottom-0 {
+  margin-bottom: 0 !important;
+}
+
+.u-marginBottom-1 {
+  margin-bottom: var(--margin-height) !important;
+}
