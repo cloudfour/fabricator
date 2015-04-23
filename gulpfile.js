@@ -122,9 +122,14 @@ gulp.task('serve', function () {
 
 	browserSync({
 		server: {
-			baseDir: config.dest
+			baseDir: config.dest,
 		},
 		notify: false,
+		ghostMode: false,
+		minify: false,
+		online: false,
+		open: false,
+		port: 3000,
 		logPrefix: 'FABRICATOR'
 	});
 
