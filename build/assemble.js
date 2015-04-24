@@ -1,3 +1,8 @@
+// polyfills
+if (!global.Intl) {
+	global.Intl = require('intl');
+}
+
 // modules
 var _ = require('lodash');
 var beautifyHtml = require('js-beautify').html;
@@ -5,6 +10,7 @@ var changeCase = require('change-case');
 var fs = require('fs');
 var globby = require('globby');
 var Handlebars = require('handlebars');
+var HandlebarsIntl = require('handlebars-intl');
 var matter = require('gray-matter');
 var md = require('markdown-it')({ html: true, linkify: true });
 var mkdirp = require('mkdirp');
@@ -334,7 +340,9 @@ var parseLayoutIncludes = function () {
 var parseData = function () {
 
 	// reset
-	assembly.data = {};
+	assembly.data = {
+		buildDate: new Date()
+	};
 
 	// get files
 	var files = globby.sync(options.data, { nodir: true });
@@ -398,6 +406,9 @@ var registerHelpers = function () {
 	var resolveHelper = path.join.bind(null, __dirname, 'helpers');
 	var localHelpers = fs.readdirSync(resolveHelper());
 	var userHelpers = options.helpers;
+
+	// register default helpers
+	HandlebarsIntl.registerWith(Handlebars);
 
 	// register local helpers
 	localHelpers.map(function (helper) {
@@ -500,9 +511,16 @@ var assemble = function () {
 			context = buildContext(pageMatter.data),
 			template = Handlebars.compile(source);
 
+		// set intl data
+		var intlData = {
+			locales: 'en-US'
+		};
+
 		// write file
 		mkdirp.sync(path.dirname(filePath));
-		fs.writeFileSync(filePath, template(context));
+		fs.writeFileSync(filePath, template(context, {
+			data: { intl: intlData }
+		}));
 
 	});
 
