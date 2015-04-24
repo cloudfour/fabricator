@@ -1,7 +1,7 @@
 'use strict';
 
 // modules
-var assemble = require('fabricator-assemble');
+var assemble = require('./build/assemble');
 var browserSync = require('browser-sync');
 var cssnext = require('cssnext');
 var csso = require('gulp-csso');
@@ -107,12 +107,7 @@ gulp.task('favicon', function () {
 
 // assemble
 gulp.task('assemble', function (done) {
-	assemble({
-		// apply additional helpers
-		helpers: {
-			ifEqual: require('./build/helpers/ifEqual')
-		}
-	});
+	assemble();
 	done();
 });
 
