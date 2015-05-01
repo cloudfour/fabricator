@@ -50,10 +50,6 @@
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",
     "script-loader": "^0.6.1",
-    "suitcss-components-arrange": "^0.6.2",
-    "suitcss-components-button": "^4.0.0",
-    "suitcss-components-grid": "^2.0.2",
-    "suitcss-utils": "^0.10.3",
     "webpack": "^1.8.3"
   },
   "dependencies": {}

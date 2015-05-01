@@ -1,16 +1,7 @@
-/* Base */
-@import "base/variables.css";
-@import "base/reset.css";
-@import "base/scaffolding.css";
-@import "base/typography.css";
+/**
+ * Toolkit CSS
+ */
 
-/* Components */
-@import "components/grid.css";
-@import "components/arrange.css";
-@import "components/container.css";
-@import "components/button.css";
-
-/* Utilities */
-@import "suitcss-utils";
-@import "utilities/flex.css";
-@import "utilities/margin.css";
+body {
+  font-family: sans-serif;
+}
