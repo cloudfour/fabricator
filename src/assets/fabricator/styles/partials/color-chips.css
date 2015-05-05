@@ -17,14 +17,16 @@
 	padding: 1em;
 	margin-top: 0;
 	margin-bottom: 2em;
+}
 
-	@media (min-width: 60em) {
+@media (min-width: 60em) {
+	.f-color-chip {
 		flex-basis: 13em;
 	}
+}
 
-	.f-color-chip__color {
-		background-color: #fff;
-		content: attr(data-color);
-		font-weight: 400;
-	}
+.f-color-chip .f-color-chip__color {
+	background-color: #fff;
+	content: attr(data-color);
+	font-weight: 400;
 }

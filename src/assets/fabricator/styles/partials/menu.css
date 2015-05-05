@@ -1,0 +1,69 @@
+/* menu */
+.f-menu {
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transform: translate(calc(var(--menu-width) * -1), 0);
+	width: var(--menu-width);
+	height: 100%;
+	z-index: 1;
+	background-color: var(--color-menu-background);
+	overflow-x: hidden;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.f-menu-active .f-menu {
+	transform: translate(0, 0);
+}
+
+.f-menu ul {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+}
+
+.f-menu > ul {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+.f-menu > ul > li {
+	margin-top: 1rem;
+}
+
+.f-menu li {
+	list-style-type: none;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.f-menu a {
+	display: block;
+	padding: 0.5rem 2rem;
+	color: var(--color-menu-text) !important;
+	text-decoration: none;
+	font-size: 0.75rem;
+	line-height: 1;
+}
+
+.f-menu a:hover {
+	color: var(--color-menu-text) !important;
+	text-decoration: underline;
+}
+
+.f-menu a.f-active {
+	box-shadow: inset 3px 0 0 0 var(--color-accent);
+}
+
+.f-menu .f-menu__heading {
+	padding-left: 1.5rem;
+	font-weight: 700;
+	font-size: .6875rem;
+	text-transform: uppercase;
+}
+
+.f-menu .f-menu__heading:hover {
+	color: var(--color-normal);
+}

@@ -11,12 +11,10 @@ var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var imagemin = require('gulp-imagemin');
 var postcss = require('gulp-postcss');
-var prefix = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 var reload = browserSync.reload;
 var requireDir = require('require-dir');
 var runSequence = require('run-sequence');
-var sass = require('gulp-sass');
 var webpack = require('webpack');
 
 
@@ -29,7 +27,7 @@ var config = {
 			toolkit: './src/assets/toolkit/scripts/toolkit.js'
 		},
 		styles: {
-			fabricator: 'src/assets/fabricator/styles/fabricator.scss',
+			fabricator: 'src/assets/fabricator/styles/fabricator.css',
 			toolkit: 'src/assets/toolkit/styles/toolkit.css'
 		},
 		images: 'src/assets/toolkit/images/**/*',
@@ -53,10 +51,9 @@ gulp.task('clean', function (cb) {
 // styles
 gulp.task('styles:fabricator', function () {
 	return gulp.src(config.src.styles.fabricator)
-		.pipe(sass({
-			errLogToConsole: true
-		}))
-		.pipe(prefix('last 1 version'))
+		.pipe(postcss([
+			cssnext()
+		]))
 		.pipe(gulpif(!config.dev, csso()))
 		.pipe(rename('f.css'))
 		.pipe(gulp.dest(config.dest + '/assets/fabricator/styles'))
@@ -153,16 +150,16 @@ gulp.task('serve', function () {
 
 	gulp.task('assemble:watch', ['assemble'], reload);
 	gulp.watch('src/**/*.{html,md,json,yml}', ['assemble:watch']);
-	
+
 	gulp.task('styles:fabricator:watch', ['styles:fabricator'], reload);
-	gulp.watch('src/assets/fabricator/styles/**/*.scss', ['styles:fabricator:watch']);
-	
+	gulp.watch('src/assets/fabricator/styles/**/*.css', ['styles:fabricator:watch']);
+
 	gulp.task('styles:toolkit:watch', ['styles:toolkit'], reload);
 	gulp.watch('src/assets/toolkit/styles/**/*.css', ['styles:toolkit:watch']);
-	
+
 	gulp.task('scripts:watch', ['scripts'], reload);
 	gulp.watch('src/assets/{fabricator,toolkit}/scripts/**/*.js', ['scripts:watch']).on('change', webpackCache);
-	
+
 	gulp.task('images:watch', ['images'], reload);
 	gulp.watch(config.src.images, ['images:watch']);
 

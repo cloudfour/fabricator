@@ -1,0 +1,83 @@
+.f-controls {
+	box-sizing: border-box;
+}
+
+.f-controls:after {
+	clear: both;
+}
+
+.f-controls:before,
+.f-controls:after {
+	display: table;
+	content: ' ';
+}
+
+.f-controls .f-control {
+	display: block;
+	float: left;
+	text-align: center;
+	width: calc(100% / 3);
+	margin: 0;
+	padding: 1rem 0;
+}
+
+.f-controls .f-control.f-active {
+	box-shadow: inset 0 3px 0 0 var(--color-accent);
+}
+
+.f-controls .f-control.f-active use {
+	fill: var(--color-menu-text);
+}
+
+.f-controls .f-control svg {
+	vertical-align: middle;
+}
+
+.f-controls .f-control svg use {
+	fill: var(--color-light);
+}
+
+.f-control {
+	box-sizing: border-box;
+	display: inline-block;
+	cursor: pointer;
+	margin-left: 0.618rem;
+}
+
+.f-control:first-child {
+	margin-left: 0;
+}
+
+.f-control svg {
+	width: 14px;
+	height: 14px;
+}
+
+.f-control use {
+	fill: var(--color-light);
+}
+
+.f-control-bar {
+	padding: 1rem 0;
+}
+
+.f-control-bar:after {
+	clear: both;
+}
+
+.f-control-bar:before,
+.f-control-bar:after {
+	display: table;
+	content: ' ';
+}
+
+.f-menu-toggle {
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.f-menu-toggle svg {
+	display: block;
+	float: left;
+	margin-bottom: -1px;
+}
