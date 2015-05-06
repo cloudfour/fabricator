@@ -8,6 +8,16 @@
 	text-decoration: none;
 }
 
+.f-Nav-header {
+	margin: 0.5rem 1rem;
+}
+
+.f-Nav-header svg {
+	fill: currentColor;
+	height: 2rem;
+	width: 2rem;
+}
+
 .f-Nav-menu {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -37,5 +47,11 @@
 .f-Nav-item--heading {
 	font-size: 1rem;
 	font-weight: 300;
-	margin-top: 1rem;
+	margin-top: 0.75rem;
+}
+
+.f-Nav-footer {
+	font-size: 0.75rem;
+	opacity: 0.5;
+	margin: 2rem 1rem 1rem;
 }
