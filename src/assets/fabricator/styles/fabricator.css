@@ -16,6 +16,7 @@
 @import 'base/scaffolding';
 
 @import 'components/layout';
+@import 'components/masthead';
 @import 'components/nav';
 
 @import 'utils/layout';
