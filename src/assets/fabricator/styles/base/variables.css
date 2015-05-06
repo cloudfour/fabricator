@@ -1,0 +1,11 @@
+:root {
+	--color-nav-background: #444;
+	--color-nav-group-background: #333;
+	--color-nav-text: #fff;
+
+	--color-nav-hover-background: #456BD9; 
+
+	--nav-width: 14rem;
+}
+
+@custom-media --large-viewport (min-width: 60em);

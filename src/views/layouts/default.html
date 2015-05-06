@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html {{#if fabricator}}class="f-Layout f-is-active"{{/if}}>
 <head>
 
 	<meta charset="utf-8">
@@ -14,7 +14,20 @@
 	<!-- /toolkit styles -->
 
 </head>
-<body>
+<body {{#if fabricator}}class="f-Layout-body"{{/if}}>
+
+	{{#if fabricator}}
+		{{> f-nav}}
+		<div class="f-Layout-main f-u-cf">
+	{{/if}}
+
+	{% body %}
+
+	{{#if fabricator}}
+		</div>
+	{{/if}}
+
+	{{!--
 
 	{{#if fabricator}}
 		{{> f-icons}}
@@ -35,6 +48,8 @@
 	<!-- toolkit scripts -->
 	<script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
 	<!-- /toolkit scripts -->
+
+	--}}
 
 </body>
 </html>
