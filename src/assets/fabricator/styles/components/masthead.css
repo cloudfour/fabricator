@@ -1,22 +1,23 @@
 .f-Masthead-control {
-	background-color: transparent;
-	border: 0;
-	cursor: pointer;
-	line-height: 1;
-	padding: 0.875rem 1rem;
-	vertical-align: middle;
+  padding: 0.875rem 1rem;
+  line-height: 1;
+  vertical-align: middle;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .f-Masthead-control svg {
-	fill: currentColor;
-	height: 1.125rem;
-	width: 1.125rem;
+  width: 1.125rem;
+  height: 1.125rem;
+
+  fill: currentColor;
 }
 
 .f-Masthead-title {
-	display: inline-block;
-	font-size: 0.75rem;
-	font-weight: normal;
-	line-height: 1;
-	vertical-align: middle;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: middle;
 }

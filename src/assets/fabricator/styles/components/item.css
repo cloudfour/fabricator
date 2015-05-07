@@ -1,79 +1,80 @@
 .f-Item {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
-	padding-bottom: 3rem;
-	border-bottom: 1px solid var(--color-item-border);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-item-border);
 }
 
 .f-Item:last-child {
-	border-bottom: 0;
-	margin-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
 }
 
 .f-Item ~ .f-Item {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 .f-Item > .f-Item {
-	padding-bottom: 1.5rem;
-	margin-bottom: 1.5rem;
-	border-bottom: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0;
 }
 
 .f-Item > .f-Item:first-of-type {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 .f-Item > .f-Item:last-child {
-	padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 .f-Item-header {
-	margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .f-Item-heading {
-	line-height: 1;
-	margin-top: 0;
-	margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1;
 }
 
 .f-Item-notes {
-	font-size: 0.875rem;
+  font-size: 0.875rem;
 }
 
 .f-Item-controls {
-	list-style: none;
-	margin-top: 2rem;
-	margin-bottom: 0;
-	padding-left: 0;
-	position: relative;
-	margin-left: -0.5rem;
-	margin-right: -0.5rem;
+  position: relative;
+  margin-top: 2rem;
+  margin-right: -0.5rem;
+  margin-bottom: 0;
+  margin-left: -0.5rem;
+  padding-left: 0;
+  list-style: none;
 }
 
 .f-Item-controls > li {
-	display: inline-block;
+  display: inline-block;
 }
 
 .f-Item-control {
-	background-color: transparent;
-	border: 0;
-	color: var(--color-control-text);
-	cursor: pointer;
-	display: inline-block;
-	font-size: 0.75rem;
-	line-height: 1;
-	padding: 0.5rem;
-	vertical-align: baseline;
-	text-decoration: none;
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  vertical-align: baseline;
+  text-decoration: none;
+  color: var(--color-control-text);
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .f-Item-control svg {
-	fill: currentColor;
-	height: 1em;
-	vertical-align: middle;
-	width: 1.5em;
-	position: relative;
-	margin-top: -0.375em;
+  position: relative;
+  margin-top: -0.375em;
+  width: 1.5em;
+  height: 1em;
+  vertical-align: middle;
+
+  fill: currentColor;
 }
