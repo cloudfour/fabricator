@@ -1,0 +1,28 @@
+.f-Swatches {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 0;
+}
+
+.f-Swatch {
+	box-sizing: border-box;
+	flex: 1 0 100%;
+	border-top-width: 8em;
+	border-top-style: solid;
+	font-size: 0.75em;
+	padding: 1em;
+	margin-bottom: 2em;
+}
+
+@media (--large-viewport) {
+	.f-Swatch {
+		flex-basis: 13em;
+	}
+}
+
+.f-Swatch-name {
+	font-weight: 700;
+}

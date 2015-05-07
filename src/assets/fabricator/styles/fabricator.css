@@ -4,14 +4,6 @@
  * Class selectors are namespaced with "f-"
  */
 
-/*@import 'partials/variables';
-@import 'partials/code';
-@import 'partials/color-chips';
-@import 'partials/controls';
-@import 'partials/item';
-@import 'partials/layout';
-@import 'partials/menu';*/
-
 @import 'base/variables';
 @import 'base/scaffolding';
 
@@ -19,6 +11,7 @@
 @import 'components/layout';
 @import 'components/masthead';
 @import 'components/nav';
+@import 'components/swatch';
 
 @import 'utils/display';
 @import 'utils/layout';
