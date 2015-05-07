@@ -5,7 +5,6 @@
  */
 
 @import 'base/variables';
-@import 'base/scaffolding';
 
 @import 'components/item';
 @import 'components/layout';
