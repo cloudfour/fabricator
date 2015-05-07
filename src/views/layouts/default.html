@@ -21,15 +21,15 @@
 		{{> f-nav}}
 		<div class="f-Layout-main f-u-cf">
 			{{> f-masthead}}
+			<div class="f-u-padSides">
 	{{/if}}
 
-	<div class="f-u-padSides">
-		{% body %}
-	</div>
+	{% body %}
 
 	{{#if fabricator}}
+			</div>
 		</div>
-	<script src="{{baseurl}}/assets/fabricator/scripts/f.js"></script>
+		<script src="{{baseurl}}/assets/fabricator/scripts/f.js"></script>
 	{{/if}}
 
 	<!-- toolkit scripts -->
