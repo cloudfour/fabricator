@@ -37,12 +37,12 @@
 }
 
 .f-is-active .f-Layout-main {
-  transform: translate(var(--nav-width), 0);
+  transform: translate(var(--Layout-nav-width), 0);
 }
 
 @media (--large-viewport) {
   .f-is-active .f-Layout-main {
-    margin-left: var(--nav-width);
+    margin-left: var(--Layout-nav-width);
     transform: translate(0, 0);
   }
 }
@@ -55,9 +55,9 @@
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
-  width: var(--nav-width);
+  width: var(--Layout-nav-width);
   height: 100%;
-  transform: translate(calc(var(--nav-width) * -1), 0);
+  transform: translate(calc(var(--Layout-nav-width) * -1), 0);
 
   -webkit-overflow-scrolling: touch;
 }

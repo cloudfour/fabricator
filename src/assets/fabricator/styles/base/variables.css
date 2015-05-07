@@ -1,11 +1,12 @@
 :root {
-	--color-nav-background: #444;
-	--color-nav-group-background: #333;
-	--color-nav-text: #fff;
-	--color-item-border: #ccc;
-	--color-control-text: #0074D9;
+	--Layout-nav-width: 14rem;
 
-	--nav-width: 14rem;
+	--Item-border: #ccc;
+	--Item-control-color: #0074D9;
+
+	--Nav-background: #444;
+	--Nav-hover-background: #333;
+	--Nav-color: #fff;
 }
 
 @custom-media --large-viewport (min-width: 60em);

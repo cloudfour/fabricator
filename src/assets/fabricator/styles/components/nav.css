@@ -1,6 +1,6 @@
 .f-Nav {
-  color: var(--color-nav-text);
-  background-color: var(--color-nav-background);
+  color: var(--Nav-color);
+  background-color: var(--Nav-background);
 }
 
 .f-Nav a {
@@ -37,12 +37,12 @@
 }
 
 .f-Nav-item.f-is-active {
-  box-shadow: 3px 0 0 var(--color-nav-text) inset;
+  box-shadow: 3px 0 0 var(--Nav-color) inset;
 }
 
 .f-Nav-item:hover,
 .f-Nav-item:focus {
-  background-color: var(--color-nav-group-background);
+  background-color: var(--Nav-hover-background);
 }
 
 .f-Nav-item--heading {
