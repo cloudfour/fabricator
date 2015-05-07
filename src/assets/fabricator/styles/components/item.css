@@ -43,22 +43,12 @@
 }
 
 .f-Item-controls {
-  position: relative;
   margin-top: 2rem;
-  margin-right: -0.5rem;
   margin-bottom: 0;
-  margin-left: -0.5rem;
-  padding-left: 0;
-  list-style: none;
-}
-
-.f-Item-controls > li {
-  display: inline-block;
 }
 
 .f-Item-control {
-  display: inline-block;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   font-size: 0.75rem;
   line-height: 1;
   vertical-align: baseline;
