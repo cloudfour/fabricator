@@ -1,4 +1,34 @@
-<div class="f-item-group" id="{{@key}}">
+<div class="f-Item" id="{{@key}}">
+
+	<div class="f-Item-header">
+		<h2 class="f-Item-heading" data-f-toggle="labels">{{name}}</h2>
+		{{#if notes}}
+			<div class="f-Item-notes" data-f-toggle="notes">
+				{{{notes}}}
+			</div>
+		{{/if}}
+	</div>
+	{{#if items}}
+		{{#each items}}
+			<div class="f-Item" id="{{@key}}">
+				<div class="f-Item-header">
+					<h3 class="f-Item-heading" data-f-toggle="labels">{{name}}</h3>
+					{{#if notes}}
+						<div class="f-Item-notes" data-f-toggle="notes">
+							{{{notes}}}
+						</div>
+					{{/if}}
+				</div>
+				{{> f-item-content this}}
+			</div>
+		{{/each}}
+	{{else}}
+		{{> f-item-content this}}
+	{{/if}}
+
+</div>
+
+{{!-- <div class="f-item-group" id="{{@key}}">
 
 {{#if items}}
 	<div class="f-item-heading-group">
@@ -19,4 +49,4 @@
 	</div>{{> f-item-content this}}
 {{/if}}
 
-</div>
+</div> --}}

@@ -2,6 +2,8 @@
 	--color-nav-background: #444;
 	--color-nav-group-background: #333;
 	--color-nav-text: #fff;
+	--color-item-border: #ccc;
+	--color-control-text: #0074D9;
 
 	--nav-width: 14rem;
 }
