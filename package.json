@@ -37,7 +37,6 @@
     "del": "^1.1.1",
     "fabricator-assemble": "^1.0.5",
     "gulp": "^3.8.11",
-    "gulp-csso": "^1.0.0",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
     "gulp-postcss": "^5.1.3",
