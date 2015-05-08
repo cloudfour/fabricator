@@ -4,7 +4,6 @@
 var assemble = require('fabricator-assemble');
 var browserSync = require('browser-sync');
 var cssnext = require('cssnext');
-var csso = require('gulp-csso');
 var del = require('del');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
@@ -54,7 +53,6 @@ gulp.task('styles:fabricator', function () {
 		.pipe(postcss([
 			cssnext()
 		]))
-		.pipe(gulpif(!config.dev, csso()))
 		.pipe(rename('f.css'))
 		.pipe(gulp.dest(config.dest + '/assets/fabricator/styles'))
 		.pipe(gulpif(config.dev, reload({stream:true})));
@@ -65,7 +63,6 @@ gulp.task('styles:toolkit', function () {
 		.pipe(postcss([
 			cssnext()
 		]))
-		.pipe(gulpif(!config.dev, csso()))
 		.pipe(gulp.dest(config.dest + '/assets/toolkit/styles'))
 		.pipe(gulpif(config.dev, reload({stream:true})));
 });
