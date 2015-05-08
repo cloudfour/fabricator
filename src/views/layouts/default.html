@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html {{#if fabricator}}class="f-Layout"{{/if}}>
 <head>
 
 	<meta charset="utf-8">
@@ -14,22 +14,22 @@
 	<!-- /toolkit styles -->
 
 </head>
-<body>
+<body {{#if fabricator}}class="f-Layout-body"{{/if}}>
 
 	{{#if fabricator}}
 		{{> f-icons}}
-		{{> f-menu}}
-		<div class="f-container">
-			{{> f-control-bar}}
+		{{> f-nav}}
+		<div class="f-Layout-main f-u-cf">
+			{{> f-masthead}}
+			<div class="f-u-padSides">
 	{{/if}}
-
 
 	{% body %}
 
-
 	{{#if fabricator}}
+			</div>
 		</div>
-	<script src="{{baseurl}}/assets/fabricator/scripts/f.js"></script>
+		<script src="{{baseurl}}/assets/fabricator/scripts/f.js"></script>
 	{{/if}}
 
 	<!-- toolkit scripts -->
