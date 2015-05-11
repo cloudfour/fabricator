@@ -3,12 +3,12 @@
 </div>
 <ul class="f-Item-controls f-u-listInline">
 	<li>
-		<button class="f-Item-control" data-f-toggle-control="code">
+		<a href="#{{@key}}-source" class="f-Item-control" data-f-toggle-control="code">
 			<svg>
 				<use xlink:href="#f-icon-code" />
 			</svg>
 			Source
-		</button>
+		</a>
 	</li>
 	{{#each data.links}}
 		<li>
@@ -21,6 +21,6 @@
 		</li>
 	{{/each}}
 </ul>
-<div class="f-Item-code f-u-hidden" data-f-toggle="code">
+<div id="{{@key}}-source" class="f-Item-code f-u-hidden" data-f-toggle="code">
 	<pre><code class="language-markup">{{material @key @root}}</code></pre>
 </div>
