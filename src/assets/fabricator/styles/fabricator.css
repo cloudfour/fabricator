@@ -7,6 +7,7 @@
 @import 'base/variables';
 
 @import 'components/item';
+@import 'components/label';
 @import 'components/layout';
 @import 'components/masthead';
 @import 'components/nav';
