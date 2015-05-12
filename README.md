@@ -34,3 +34,50 @@ Logo by [Abby Putinski](https://abbyputinski.com/)
 ## License
 
 [The MIT License (MIT)](http://opensource.org/licenses/mit-license.php)
+
+## Cloud Four Additions and Changes
+
+We've made some changes and enhancements of our own. The presentation of the fabricator UI has been modified quite a bit. Also...:
+
+### Handlebars Helpers
+
+We've added additional available Handlebars (template) helpers. See `build/helpers` for source.
+
+### Additional Front-Matter Metadata
+
+You can of course add any front matter you like to materials. We've added specific support in templates for some special attributes:
+
+`links`: This is an object. Keys will be used for display, values should be the URL. These will be rendered along with the material as resource/reference external links.
+
+Example:
+
+```yaml
+---
+links:
+    The Best Web Site Ever: http://www.example.com
+    Another site: https://www.foo.com
+---
+```
+
+`labels`: This is an array. Values of the array will be used as label class identifiers. Labels express the status of the material in question. Unrecognized labels will be displayed as well, but without color highlighting (in current implementation, gray).
+
+Defined labels:
+
+* `inprogress` (yellow)
+* `deprecated` (red)
+* `approved` (green)
+
+Example:
+
+```yaml
+---
+labels:
+    - inprogress
+    - totoro
+---
+```
+
+### Workflow Changes
+
+* We've opted for `post-css` instead of the default Sass that ships with Fabricator.
+* We've removed `csso` (optimization).
