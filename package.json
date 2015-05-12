@@ -43,6 +43,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.4",
     "imports-loader": "^0.6.3",
+    "keyboard-shortcut": "^1.2.0",
     "moment": "^2.10.2",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.0.2",

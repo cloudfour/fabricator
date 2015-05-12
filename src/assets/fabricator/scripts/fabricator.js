@@ -2,6 +2,13 @@
 
 require('./prism');
 
+import bindKeys from './lib/KeyController';
+
+const LABELS_SHORTCUT = 'ctrl a';
+const CODE_SHORTCUT = 'ctrl s';
+const NOTES_SHORTCUT = 'ctrl d';
+const MENU_SHORTCUT = 'ctrl /';
+
 /**
  * Global `fabricator` object
  * @namespace
@@ -58,7 +65,10 @@ fabricator.dom = {
 	root: document.querySelector('html'),
 	primaryMenu: document.querySelector('.f-Nav'),
 	menuItems: document.querySelectorAll('.f-Nav-item'),
-	menuToggle: document.querySelector('.f-Masthead-control')
+	menuToggle: document.querySelector('.f-Masthead-control'),
+	labels: document.querySelectorAll('[data-f-toggle="labels"]'),
+	notes: document.querySelectorAll('[data-f-toggle="notes"]'),
+	code: document.querySelectorAll('[data-f-toggle="code"]')
 };
 
 
@@ -187,78 +197,65 @@ fabricator.menuToggle = function () {
 
 };
 
+fabricator.saveOptions = function (options) {
+	if (fabricator.test.sessionStorage) {
+		sessionStorage.setItem('fabricator', JSON.stringify(options));
+	}
+};
 
-/**
- * Handler for preview and code toggles
- * @return {Object} fabricator
- */
-// fabricator.allItemsToggles = function () {
-//
-// 	var items = {
-// 		labels: document.querySelectorAll('[data-f-toggle="labels"]'),
-// 		notes: document.querySelectorAll('[data-f-toggle="notes"]'),
-// 		code: document.querySelectorAll('[data-f-toggle="code"]')
-// 	};
-//
-// 	var toggleAllControls = document.querySelectorAll('.f-controls [data-f-toggle-control]');
-//
-// 	var options = fabricator.getOptions();
-//
-// 	// toggle all
-// 	var toggleAllItems = function (type, value) {
-//
-// 		var button = document.querySelector('.f-controls [data-f-toggle-control=' + type + ']'),
-// 			_items = items[type];
-//
-// 		for (var i = 0; i < _items.length; i++) {
-// 			if (value) {
-// 				_items[i].classList.remove('f-item-hidden');
-// 			} else {
-// 				_items[i].classList.add('f-item-hidden');
-// 			}
-// 		}
-//
-// 		// toggle styles
-// 		if (value) {
-// 			button.classList.add('f-active');
-// 		} else {
-// 			button.classList.remove('f-active');
-// 		}
-//
-// 		// update options
-// 		options.toggles[type] = value;
-//
-// 		if (fabricator.test.sessionStorage) {
-// 			sessionStorage.setItem('fabricator', JSON.stringify(options));
-// 		}
-//
-// 	};
-//
-// 	for (var i = 0; i < toggleAllControls.length; i++) {
-//
-// 		toggleAllControls[i].addEventListener('click', function (e) {
-//
-// 			// extract info from target node
-// 			var type = e.currentTarget.getAttribute('data-f-toggle-control'),
-// 				value = e.currentTarget.className.indexOf('f-active') < 0;
-//
-// 			// toggle the items
-// 			toggleAllItems(type, value);
-//
-// 		});
-//
-// 	}
-//
-// 	// persist toggle options from page to page
-// 	for (var toggle in options.toggles) {
-// 		if (options.toggles.hasOwnProperty(toggle)) {
-// 			toggleAllItems(toggle, options.toggles[toggle]);
-// 		}
-// 	}
-//
-// 	return this;
-//
-// };
+fabricator.setToggleOption = function (toggleType, state) {
+	let options = fabricator.getOptions();
+	let toggleValue = options.toggles[toggleType];
+
+	options.toggles[toggleType] = (state == null) ? !toggleValue : state;
+	fabricator.saveOptions(options);
+};
+
+fabricator.initToggleOptions = function (toggleType) {
+	let options = fabricator.getOptions().toggles;
+
+	this.toggleLabels(options.labels);
+	this.toggleCode(options.code);
+	this.toggleNotes(options.notes);
+
+	return this;
+};
+
+fabricator.toggleClass = function (element, className, state) {
+	let classList = element.classList;
+	switch (state) {
+		case true:
+			classList.add(className);
+			break;
+		case false:
+			classList.remove(className);
+			break;
+		default:
+			classList.toggle(className);
+			break;
+	}
+};
+
+fabricator.toggleClassAll = function (elements, className, state) {
+	Array.prototype.forEach.call(elements, (el) => {
+		fabricator.toggleClass(el, className, state);
+	});
+};
+
+fabricator.toggleLabels = function (state) {
+	fabricator.setToggleOption('labels', state);
+	fabricator.toggleClassAll(fabricator.dom.labels, 'f-u-hidden', state);
+};
+
+fabricator.toggleCode = function (state) {
+	fabricator.setToggleOption('code', state);
+	fabricator.toggleClassAll(fabricator.dom.code, 'f-u-hidden', state);
+};
+
+fabricator.toggleNotes = function (state) {
+	fabricator.setToggleOption('notes', state);
+	fabricator.toggleClassAll(fabricator.dom.notes, 'f-u-hidden', state);
+};
 
 
 /**
@@ -304,6 +301,7 @@ fabricator.bindCodeAutoSelect = function () {
 		codeBlocks[i].addEventListener('click', select.bind(this, codeBlocks[i]));
 	}
 
+	return this;
 };
 
 
@@ -348,9 +346,21 @@ fabricator.setInitialMenuState = function () {
 	fabricator
 		.setInitialMenuState()
 		.menuToggle()
-		// .allItemsToggles()
 		.singleItemToggle()
 		.setActiveItem()
-		.bindCodeAutoSelect();
+		.bindCodeAutoSelect()
+		.initToggleOptions();
+
+	bindKeys(LABELS_SHORTCUT, () => {
+		fabricator.toggleLabels()
+	});
+
+	bindKeys(CODE_SHORTCUT, () => {
+		fabricator.toggleCode();
+	});
+	
+	bindKeys(NOTES_SHORTCUT, () => {
+		fabricator.toggleNotes();
+	});
 
 }());
